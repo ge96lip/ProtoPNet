@@ -1,0 +1,42 @@
+True Label: [1]
+Predicted Label: 1
+
+Category 0 Prototypes Ranking:
+Rank 1: Prototype 3, Distance/Weight: 2.571007013320923
+Rank 2: Prototype 8, Distance/Weight: 2.4271323680877686
+Rank 3: Prototype 6, Distance/Weight: 2.277982234954834
+
+Category 1 Prototypes Ranking:
+Rank 1: Prototype 4, Distance/Weight: 7.947379112243652
+Rank 2: Prototype 7, Distance/Weight: 5.949337005615234
+Rank 3: Prototype 3, Distance/Weight: 5.417105674743652
+
+Category 2 Prototypes Ranking:
+Rank 1: Prototype 5, Distance/Weight: 2.8169095516204834
+Rank 2: Prototype 4, Distance/Weight: 2.5387699604034424
+Rank 3: Prototype 1, Distance/Weight: 2.1162514686584473
+
+Category 3 Prototypes Ranking:
+Rank 1: Prototype 9, Distance/Weight: 2.8509974479675293
+Rank 2: Prototype 8, Distance/Weight: 2.4703266620635986
+Rank 3: Prototype 1, Distance/Weight: 2.460820198059082
+
+Category 4 Prototypes Ranking:
+Rank 1: Prototype 9, Distance/Weight: 2.8959593772888184
+Rank 2: Prototype 2, Distance/Weight: 2.5206096172332764
+Rank 3: Prototype 7, Distance/Weight: 2.225410223007202
+
+Category 5 Prototypes Ranking:
+Rank 1: Prototype 4, Distance/Weight: 2.5271198749542236
+Rank 2: Prototype 2, Distance/Weight: 2.3971781730651855
+Rank 3: Prototype 0, Distance/Weight: 2.145153522491455
+
+Category 6 Prototypes Ranking:
+Rank 1: Prototype 4, Distance/Weight: 3.3736979961395264
+Rank 2: Prototype 6, Distance/Weight: 2.92100191116333
+Rank 3: Prototype 3, Distance/Weight: 2.8735435009002686
+
+Category 7 Prototypes Ranking:
+Rank 1: Prototype 5, Distance/Weight: 3.4245121479034424
+Rank 2: Prototype 1, Distance/Weight: 3.025383472442627
+Rank 3: Prototype 8, Distance/Weight: 2.3241677284240723
