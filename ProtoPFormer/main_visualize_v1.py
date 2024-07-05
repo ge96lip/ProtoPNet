@@ -511,6 +511,7 @@ def visualize_main(args, ppnet, use_train_imgs, view_loader, loader):
         for i, (x, y, _) in enumerate(loader):
             x = x.cuda()
             y = y.cuda()
+            print(x.device)
             logits, auxi_items = ppnet.forward(x)
             token_attn, distances = auxi_items[0], auxi_items[1]
             _, pred = logits.topk(k=1, dim=1)
@@ -1301,17 +1302,26 @@ def visualize_top_three_every_class(
                 coor = find_high_activation_crop(upsampled_act)
 
                 heatmap = cv2.applyColorMap(np.uint8(255 * upsampled_act), cv2.COLORMAP_JET)
+                
+                # Set low activation regions to transparent (alpha = 0)
+                blue_background_threshold = 0.1  # Adjust this threshold based on your needs
+                heatmap = cv2.cvtColor(heatmap, cv2.COLOR_BGR2BGRA)
+                heatmap[:, :, 3] = np.where(upsampled_act < blue_background_threshold, 0, 255)
+                
                 heatmaps.append(heatmap)
                 all_coors.append(coor)
 
                 heatmaps = np.stack(heatmaps, axis=0)
                 proto_acts = np.stack(proto_acts, axis=0)
-                acti_imgs = (view_imgs[i].astype(np.float32) * 0.7 + heatmaps[0].astype(np.float32) * 0.3).astype(np.uint8)
+                heatmaps_rgb = heatmaps[0][:, :, :3]
+                acti_imgs = (view_imgs[i].astype(np.float32) * 0.7 + heatmaps_rgb.astype(np.float32) * 0.3).astype(np.uint8)
+                # acti_imgs = (view_imgs[i].astype(np.float32) * 0.7 + heatmaps[0].astype(np.float32) * 0.3).astype(np.uint8)
                 weight = proto_acts_max[proto_idx_max] / total_weight
                 scaled_weight = weight * scaling_factor
+                
                 print(f"Original weight: {weight}, Scaled weight: {scaled_weight}")
 
-                combined_heatmap += (heatmaps[0].astype(np.float32) * scaled_weight)
+                combined_heatmap += (heatmaps_rgb.astype(np.float32) * scaled_weight)
 
 
                 if args.visual_type == "slim_gaussian":
@@ -1375,7 +1385,8 @@ def visualize_top_three_every_class(
                         )
                         if os.path.exists(discard_path) is False:
                             cv2.imwrite(discard_path, discard_imgs[k])
-            combined_heatmap = (view_imgs[i].astype(np.float32) * 0.3 + combined_heatmap.astype(np.float32) * 0.7).astype(np.uint8)
+
+            combined_heatmap = (view_imgs[i].astype(np.float32) * 0.5 + combined_heatmap.astype(np.float32) * 0.5).astype(np.uint8)
             # Save the combined heatmap
             cv2.imwrite(
                 os.path.join(
@@ -1506,6 +1517,6 @@ synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)"""
  #   args, ppnet, use_train_imgs, view_loader, loader
 #)
 visualize_top_three_every_class(
-    args, ppnet, use_train_imgs, view_loader, loader
+    args, ppnet, use_train_imgs, view_loader, loader, 15
 )
 
