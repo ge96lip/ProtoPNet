@@ -33,6 +33,7 @@ To ensure everything runs smoothly, please first install the environment as name
 ### Training a New MedMNIST ProtoPFormer
 
 To train a new MedMNIST ProtoPNet, run the following command:
+
 ```./ProtoPFormer/scripts/train.sh model_type batch_size MedMNIST_dataset number_of_prototypes```
 
 - `MedMNIST_dataset` can be any but should be with the 224 image size.
