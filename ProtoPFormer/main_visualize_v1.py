@@ -511,7 +511,6 @@ def visualize_main(args, ppnet, use_train_imgs, view_loader, loader):
         for i, (x, y, _) in enumerate(loader):
             x = x.cuda()
             y = y.cuda()
-            print(x.device)
             logits, auxi_items = ppnet.forward(x)
             token_attn, distances = auxi_items[0], auxi_items[1]
             _, pred = logits.topk(k=1, dim=1)
@@ -1221,7 +1220,7 @@ def visualize_top_three_every_class(
 
     # iterate through all categories
     # for class_id in args.num_classes:
-    print(sample_num)
+
     for i in range(sample_num):
         print("process image {}...".format(i))
         data_dir = os.path.join(args.output_dir, args.data_set, "top_three_performing_protoypes")
@@ -1454,7 +1453,6 @@ test_view_loader = torch.utils.data.DataLoader(
 load_model_dir = args.modeldir[0]
 load_model_name = args.model[0]
 load_model_path = Path(load_model_dir) / (load_model_name)
-print(args.prototype_shape)
 ppnet = protopformer.construct_PPNet(
     base_architecture=args.base_architecture,
     pretrained=True,
@@ -1473,7 +1471,7 @@ ppnet = protopformer.construct_PPNet(
 
 print("load model from " + str(load_model_path))
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-print(device)
+
 load_model = torch.load(load_model_path, map_location=device)
 if "model" in load_model.keys():
     ppnet.load_state_dict(load_model["model"], strict=False)
@@ -1490,7 +1488,9 @@ view_loader = test_view_loader if use_train_imgs is False else train_view_loader
 loader = test_loader if use_train_imgs is False else train_view_loader
 
 
-"""closest_patches_info = get_closest_patches(
+"""
+# which patch is closes in image space to learned prototypes
+closest_patches_info = get_closest_patches(
     ppnet, ppnet.prototype_vectors, train_loader, patch_size
 )
 path = os.path.join("prototype_visualizations", f"{args.data_set}_{proto_per_category}")
@@ -1500,7 +1500,8 @@ visualize_prototypes(
 )"""
 
 
-"""# Example initial patch
+"""
+# Approach to learn a new image prototype from feature space -> synthesize one 
 initial_patch = torch.rand(3, 16, 16)
 
 # Visualize the initial patch
@@ -1511,11 +1512,15 @@ plt.show()
 # Example call to synthesize_prototype
 synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)"""
 
+# Original visualization method from the authors
 # visualize_main(args, ppnet, use_train_imgs, view_loader, loader)
+# Visualize the ONE prototype which is most important for a class category 
 #visualize_most_important_for_label(args, ppnet, use_train_imgs, view_loader, loader)
+# Visualize the prototype which influenced the prediction the most (will be different to the above prototype if image is wrongly classified)
 #visualize_most_important_for_prediction(
  #   args, ppnet, use_train_imgs, view_loader, loader
 #)
+# visualize the top three prototypes from every class for every image from the first batch 
 visualize_top_three_every_class(
     args, ppnet, use_train_imgs, view_loader, loader, 15
 )
