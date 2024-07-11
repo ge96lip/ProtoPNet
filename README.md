@@ -21,6 +21,7 @@ First, clone the repository:
 To ensure everything runs smoothly, please first install the environment as named below:
 
 ```conda env create -f environment.yml```
+
 **Note**: If conda is not automatically installed do this: 
 ```conda install pytorch torchvision torchaudio cudatoolkit=11.7 -c pytorch -c nvidia```
 
