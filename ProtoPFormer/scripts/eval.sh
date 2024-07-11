@@ -1,6 +1,11 @@
 #!/bin/bash
+
 # Initialize Conda for the current session
-source activate protop
+source ~/miniconda3/etc/profile.d/conda.sh
+conda activate ProtoPNet
+echo "Active environment: $(conda info --envs | grep '*' | awk '{print $1}')"
+
+
 export PYTHONPATH=./:$PYTHONPATH
 export CUDA_DEVICE_ORDER="PCI_BUS_ID"
 export CUDA_VISIBLE_DEVICES="1"
@@ -29,21 +34,6 @@ elif [ "$model" == "cait_xxs24_224" ]; then
 fi
 
 case "$data_set" in
-    "CUB2011U")
-        global_proto_per_class=10
-        prototype_num=2000
-        reserve_token_nums=81
-        ;;
-    "Car")
-        global_proto_per_class=5
-        prototype_num=1960
-        reserve_token_nums=121
-        ;;
-    "Dogs")
-        global_proto_per_class=5
-        prototype_num=1200
-        reserve_token_nums=81
-        ;;
     "Med")
         global_proto_per_class=3
         prototype_num=600

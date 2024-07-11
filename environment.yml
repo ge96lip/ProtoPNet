@@ -1,0 +1,21 @@
+name: ProtoPNet
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+  - nvidia
+dependencies:
+  - python=3.10
+  - cudatoolkit=11.7
+  - tensorboard
+  - timm=0.4.12
+  - scipy
+  - pandas
+  - pytorch
+  - torchaudio
+  - torchvision
+  - opencv
+  - pip:
+    - matplotlib==3.5.2
+    - tqdm
+    - medmnist

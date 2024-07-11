@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ensure that the Conda environment is activated
-source activate protop
+source activate ProtoPNet
 
 # Set the environment variables
 export PYTHONPATH=.:$PYTHONPATH
