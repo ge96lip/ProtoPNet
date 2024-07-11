@@ -55,7 +55,7 @@ To evaluate the model, run the following command:
 
 The `main_visualization_v1.py` file allows for different visualization methods.
 
-#### Closest Patches in Image Space to Learned Prototypes
+Closest Patches in Image Space to Learned Prototypes
 
 ```closest_patches_info = get_closest_patches(
     ppnet, ppnet.prototype_vectors, train_loader, patch_size
