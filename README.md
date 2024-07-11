@@ -22,7 +22,8 @@ To ensure everything runs smoothly, please first install the environment as name
 
 ```conda env create -f environment.yml```
 
-**Note**: If conda is not automatically installed do this: 
+**Note**: If conda is not automatically, it can be manually installed:
+
 ```conda install pytorch torchvision torchaudio cudatoolkit=11.7 -c pytorch -c nvidia```
 
 
