@@ -49,6 +49,8 @@ To evaluate the model, run teh following command:
 
 ```CUDA_VISIBLE_DEVICES=1 python ./ProtoPFormer/analysis.py --num_classes x --prototype_shape xx --modeldir "/path/to/model/checkpoints" --model "epoch-best.pth" --dataset "name_dataset"```
 
+**Note**: CUDA_VISIBLE_DEVICE=x not needed but the analysis does require a lot of GPU Memory therefore it is recommended choosing a idle GPU 
+
 
 ### Visualization of Prototypes
 
