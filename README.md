@@ -24,6 +24,8 @@ To ensure everything runs smoothly, please first install the environment as name
 
 **Note**: If conda is not automatically, it can be manually installed:
 
+```conda remove pytorch torchvision torchaudio```
+
 ```conda install pytorch torchvision torchaudio cudatoolkit=11.7 -c pytorch -c nvidia```
 
 
@@ -57,12 +59,14 @@ The `main_visualization_v1.py` file allows for different visualization methods.
 
 Closest Patches in Image Space to Learned Prototypes
 
-```closest_patches_info = get_closest_patches(
+```
+closest_patches_info = get_closest_patches(
     ppnet, ppnet.prototype_vectors, train_loader, patch_size)
 path = os.path.join("prototype_visualizations", f"{args.data_set}_{proto_per_category}")
 visualize_prototypes(
     closest_patches_info, dataset_train, path, patch_size
-)```
+)
+```
 
 Original Visualization Methods from the Authors
 ```visualize_main(args, ppnet, use_train_imgs, view_loader, loader)```
@@ -74,13 +78,16 @@ Visualize the Prototype Influencing the Prediction the Most
 ```visualize_most_important_for_prediction(args, ppnet, use_train_imgs, view_loader, loader)```
 
 Visualize the Top Three Prototypes from Every Class for Every Image from the First Batch
-```visualize_top_three_every_class(
+```
+visualize_top_three_every_class(
     args, ppnet, use_train_imgs, view_loader, loader, 15
-)```
+)
+```
 
 
 Learning a New Image Prototype from Feature Space
 **Note** This method does not yet work
+
 ```
 # Initial Patch
 initial_patch = torch.rand(3, 16, 16)
@@ -91,6 +98,7 @@ plt.title("Initial Patch")
 plt.show()
 
 # Example Call to Synthesize Prototype
-synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)```
+synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)
+```
 
 
