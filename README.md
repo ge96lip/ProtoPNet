@@ -45,15 +45,21 @@ To train a new MedMNIST ProtoPNet, run the following command:
 
 ### Evaluating the Model
 
-To evaluate the model, run the following command:
+To evaluate the model, run teh following command: 
+
+```CUDA_VISIBLE_DEVICES=1 python ./ProtoPFormer/analysis.py --num_classes x --prototype_shape xx --modeldir "/path/to/model/checkpoints" --model "epoch-best.pth" --dataset "name_dataset"```
+
+
+### Visualization of Prototypes
+
+To visualize the prototypes of the model, run the following command:
 
 ```./ProtoPFormer/scripts/eval.sh deit_tiny_patch16_224 MedMNIST_dataset output_view False "path_to_checkpoint" epoch-best.pth```
-
 
 - `MedMNIST_dataset` should be the dataset the model was trained on.
 - `path_to_checkpoint` default: `"output_cosine/dataset/deit_tiny_patch16_224/1028-adamw-0.05-100-protopformer/checkpoints"`.
 
-## Visualization
+## Variations of Visualization
 
 ### Prototype Visualization
 
