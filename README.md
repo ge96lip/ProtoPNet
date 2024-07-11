@@ -28,6 +28,8 @@ To ensure everything runs smoothly, please first install the environment as name
 
 ```conda install pytorch torchvision torchaudio cudatoolkit=11.7 -c pytorch -c nvidia```
 
+```pip install timm==0.4.12```
+
 
 **Note**: This can only be run using CUDA.
 
