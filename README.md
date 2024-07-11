@@ -58,8 +58,7 @@ The `main_visualization_v1.py` file allows for different visualization methods.
 Closest Patches in Image Space to Learned Prototypes
 
 ```closest_patches_info = get_closest_patches(
-    ppnet, ppnet.prototype_vectors, train_loader, patch_size
-)
+    ppnet, ppnet.prototype_vectors, train_loader, patch_size)
 path = os.path.join("prototype_visualizations", f"{args.data_set}_{proto_per_category}")
 visualize_prototypes(
     closest_patches_info, dataset_train, path, patch_size
