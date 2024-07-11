@@ -13,7 +13,7 @@ There are three different ProtoPNets namely:
 
 First, clone the repository:
 
-```git clone ´´´
+```git clone```
 
 
 ### Setting Up the Environment
