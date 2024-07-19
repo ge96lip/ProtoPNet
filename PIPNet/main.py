@@ -1,7 +1,7 @@
 from pipnet.pipnet import PIPNet, get_network
 from util.log import Log
-from pipnet.test import vis_pred2, vis_pred_experiments2
-from test_code import test_pipnet
+from pipnet.test_visualize import vis_pred2, vis_pred_experiments2
+from pipnet.test import test_pipnet
 import torch.nn as nn
 from util.args import get_args, save_args, get_optimizer_nn
 from util.data import get_dataloaders
@@ -23,9 +23,10 @@ from copy import deepcopy
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
+print("Finished all downloads succesfully")
 
 def run_pipnet(args):
+    
     
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed_all(args.seed)

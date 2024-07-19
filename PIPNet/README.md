@@ -1,7 +1,8 @@
 README:
 This readme file consists mainly of the same material from the PIP-Net README. 
 
-
+- Note, there is an example for how to run the breastmnist_224 dataset. See the used_arguments.
+If you wish to run your own dataset, then ensure that the structure of the folder is similar to the breastmnist.
 
 # PIP-Net: Patch-Based Intuitive Prototypes for Interpretable Image Classification
 This repository presents the PyTorch code for PIP-Net (Patch-based Intuitive Prototypes Network).
