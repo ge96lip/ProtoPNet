@@ -15,7 +15,10 @@ dependencies:
   - torchaudio
   - torchvision
   - opencv
+  - torchsummary
+  - torchmetrics
   - pip:
     - matplotlib==3.5.2
     - tqdm
     - medmnist
+    - wandb
