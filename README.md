@@ -159,7 +159,7 @@ To train the model `cd` to the project folder, then use the command `python main
 
 **Visualization of Images**
 
-- "explain_images.py" visualizes the prototypes and their influences on the model's predictions and saves the visualization results.
+- "explain_images.py" visualizes the prototypes and their influences on the model's predictions and saves the visualization results in the output_images folder.
 
 - "src/data/explain_images_without_names.py" visualizing the prototypes and their influences on the model's predictions and saving the visualization results without real names just (category 0,1,2..).
 
@@ -186,7 +186,7 @@ the important content saved in the logs/save_dir folder are:
 Once you run the system, it will contain the saved models, logs, and evaluation results (visualization of explanations, etc)
 
 ### pretrained_models
-When training is done for the first time, pretrained backbone models are saved here.
+When training is done for the first time, pretrained backbone models are saved here automatically.
 
 ### src
 - `agents/`: folder containing agent classes for each of the architectures. contains the main framework for the training process
