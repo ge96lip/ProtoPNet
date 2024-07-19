@@ -115,7 +115,7 @@ synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)
 --------------------------------------------------------------------------------------------------------
 ## Contents
 - [Introduction](#Introduction)
-- [Environment Setup](#Environment Setup)
+- [Environment Setup](#Environment-Setup)
 - [Train and Test](#Train-and-Test)
 - [Description of Files and Folders](#Description-of-Files-and-Folders)
 
