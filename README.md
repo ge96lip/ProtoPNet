@@ -34,12 +34,14 @@ To ensure everything runs smoothly, please first install the environment as name
 **Note**: This can only be run using CUDA.
 
 ## Using ProtoPFormer
+### Training a New MedMNIST ProtoPFormer
 
-### Environment Setup
+To train a new MedMNIST ProtoPNet, run the following command:
 
-1. Place your data in the `data` folder. Download Ultrasound dataset and put it inside 'data' folder, [Link is here](https://drive.google.com/drive/folders/18Pzqy-Zy3_aPRwAVp5UT9GYoLpXTK2rv?usp=sharing)
+```./ProtoPFormer/scripts/train.sh model_type batch_size MedMNIST_dataset number_of_prototypes```
 
-2. Also, we already trained Bloodmnist model for 3-5-10 prototypes. Also, you can find in the driver and put it inside 'logs/Image_ProtoAsNet' [Link is here](https://drive.google.com/drive/folders/189V5SGVvBsm-8idoU-XEFwRcFXDbgvmQ?usp=sharing)
+- `MedMNIST_dataset` can be any but should be with the 224 image size.
+- `number_of_prototypes` should be `number_of_classes x prototypes_per_class`.
 
 ### Evaluating the Model
 
@@ -113,6 +115,7 @@ synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)
 --------------------------------------------------------------------------------------------------------
 ## Contents
 - [Introduction](#Introduction)
+- [Environment Setup](#Environment Setup)
 - [Train and Test](#Train-and-Test)
 - [Description of Files and Folders](#Description-of-Files-and-Folders)
 
@@ -122,7 +125,14 @@ synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)
 ProtoASNet: Dynamic Prototypes for Inherently Interpretable and Uncertainty-Aware Aortic Stenosis Classification in Echocardiography for medmnist and ultrasound dataset.
 
 --------------------------------------------------------------------------------------------------------
+## Environment Setup
 
+1. Place your data in the `data` folder. Download Ultrasound dataset and put it inside 'data' folder, [Link is here](https://drive.google.com/drive/folders/18Pzqy-Zy3_aPRwAVp5UT9GYoLpXTK2rv?usp=sharing)
+
+2. Also, we already trained Bloodmnist model for 3-5-10 prototypes. Also, you can find in the driver and put it inside 'logs/Image_ProtoAsNet' [Link is here](https://drive.google.com/drive/folders/189V5SGVvBsm-8idoU-XEFwRcFXDbgvmQ?usp=sharing)
+
+
+--------------------------------------------------------------------------------------------------------
 ## Train and Test
 
 To train the model `cd` to the project folder, then use the command `python main.py` with the arguments described below:
