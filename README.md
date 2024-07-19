@@ -45,11 +45,11 @@ To train a new MedMNIST ProtoPNet, run the following command:
 
 ### Evaluating the Model
 
-To evaluate the model, run teh following command: 
+To evaluate the model, run the following command: 
 
 ```CUDA_VISIBLE_DEVICES=1 python ./ProtoPFormer/analysis.py --num_classes x --prototype_shape xx --modeldir "/path/to/model/checkpoints" --model "epoch-best.pth" --dataset "name_dataset"```
 
-**Note**: CUDA_VISIBLE_DEVICE=x not needed but the analysis does require a lot of GPU Memory therefore it is recommended choosing a idle GPU 
+**Note**: CUDA_VISIBLE_DEVICE=x not needed but the analysis does require a lot of GPU Memory therefore it is recommended choosing an idle GPU 
 
 
 ### Visualization of Prototypes
@@ -115,7 +115,6 @@ synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)
 --------------------------------------------------------------------------------------------------------
 ## Contents
 - [Introduction](#Introduction)
-- [Environment Setup](#Environment-Setup)
 - [Train and Test](#Train-and-Test)
 - [Description of Files and Folders](#Description-of-Files-and-Folders)
 
@@ -124,34 +123,8 @@ synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)
 
 ProtoASNet: Dynamic Prototypes for Inherently Interpretable and Uncertainty-Aware Aortic Stenosis Classification in Echocardiography for medmnist and ultrasound dataset.
 
-
 --------------------------------------------------------------------------------------------------------
-## Environment Setup
 
-1. Clone the repo
-
-```bash
-git clone https://github.com/Tugcannn/ProtoAsNet.git
-cd ProtoASNet
-```
-2. Place your data in the `data` folder. Download Ultrasound dataset and put it inside 'data' folder, [Link is here](https://drive.google.com/drive/folders/18Pzqy-Zy3_aPRwAVp5UT9GYoLpXTK2rv?usp=sharing)
-
-3. Also, we already trained Bloodmnist model for 3-5-10 prototypes. Also, you can find in the driver and put it inside 'logs/Image_ProtoAsNet' [Link is here](https://drive.google.com/drive/folders/189V5SGVvBsm-8idoU-XEFwRcFXDbgvmQ?usp=sharing)
-
-4. Python library dependencies can be installed using:
-
-```bash
-pip install --upgrade pip
-pip install torch torchvision  
-pip install pandas wandb tqdm seaborn torch-summary opencv-python jupyter jupyterlab imageio array2gif moviepy scikit-image scikit-learn torchmetrics termplotlib
-pip install -e .
-# sanity check 
-python -c "import torch; print(torch.__version__)"
-python -c "import torch; print(torch.version.cuda)"
-```
-
-
---------------------------------------------------------------------------------------------------------
 ## Train and Test
 
 To train the model `cd` to the project folder, then use the command `python main.py` with the arguments described below:
@@ -193,7 +166,7 @@ To train the model `cd` to the project folder, then use the command `python main
 
 ### outputs 
 
-the important content saved in the save_dir folder are:
+the important content saved in the logs/save_dir folder are:
 
 - `model_best.pth`: checkpoint of the last model which is the best model based on a metric of ACC
 
