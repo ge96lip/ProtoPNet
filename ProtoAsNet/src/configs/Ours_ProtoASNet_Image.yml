@@ -1,0 +1,92 @@
+################### Experiment information ######################
+description: ProtoASNet (our) model based on Xprotonet for image data, but has abstain logits
+run_name: "Ours_ProtoASNet_Image"
+agent: "XProtoNet_e2e"
+CUDA_VISIBLE_DEVICES: "1"
+wandb_mode: 'disabled' # online -> DI # one of "online", "offline" or "disabled". disabled turns wandb logging off! good for testing
+abstain_class: False #True
+
+################## Model information ##########################
+model: &model
+  checkpoint_path: ''
+  name: "XProtoNet"
+  base_architecture: 'resnet50'  # backbone 
+  pretrained: True
+  prototype_shape: (33, 1024, 1, 1)  # Modify first element to select total # of prototypes (dividable by num_classes) #resnet18 -> 512
+  num_classes: 11
+  add_on_layers_type: 'regular'
+
+################## Training information ##########################
+train: &train
+  seed: 200
+  num_train_epochs: 100  #default 101 di
+  save: True
+  save_step: null
+  num_warm_epochs: 2
+  batch_size: 64
+  accumulation_steps: 5
+  push_start: 100
+  push_rate: 100 # epochs
+  num_workers: 10
+
+  criterion:
+    CeLoss:  # will be used if (abstain_class == False)
+      loss_weight: 1
+      reduction: 'mean'
+    CeLossAbstain:  # will be used if (abstain_class == True)
+        loss_weight: 1
+        ab_weight: 0.3
+        ab_logitpath: 'joined'
+        reduction: 'mean'
+    ClusterRoiFeat:
+      loss_weight: 0.8
+      reduction: 'mean'
+    SeparationRoiFeat:
+      loss_weight: 0.08
+      reduction: 'mean'
+    OrthogonalityLoss:
+      loss_weight: 0.0
+      mode: 'per_class'  # to encourage diversity in each class ('per_class'), or overal ('all')
+    Lnorm_occurrence:
+      p: 2
+      loss_weight: 0.0 # 1e-4
+      reduction: 'mean'
+    trans_occurrence:
+      loss_weight: 0.001 # 1e-4
+      reduction: 'mean'
+    Lnorm_FC:
+      p: 1
+      loss_weight: 0.0001 # 1e-4
+
+  optimizer: &optimizer
+    name: 'AdamW'
+    mode: 'lr_same'  # can be lr_same/lr_disjoint
+    lr_same: 0.0001  # 1e-4
+
+  lr_schedule: &lr_schedule   # for joint_optimizer only
+    name: 'ReduceLROnPlateau'
+    mode: 'max'  # used for F1 score
+    factor: 0.5  # Factor by which the learning rate will be reduced
+    patience: 5 # Number of epochs with no improvement after which learning rate will be reduced
+    threshold: 0.0001  # Threshold for measuring the new optimum, to only focus on significant changes
+    cooldown: 2
+    min_lr: 0.000001  # 1e-6
+    verbose: True
+#################### Data information #######################
+data: &data   #TODO modify this according to your dataset class and dataloder needs
+  #name: "chestNew"
+  #data_info_file: 'data/<dataset name>/<dataset-csv-info>.csv'
+  #sample_size: null
+  #sampler: 'AS'  # one of 'AS', 'random', 'bicuspid', 'AVA'
+  #view: "all",  # one of  psax, plax, all
+
+  augmentation: True
+  transform_rotate_degrees: 15
+  transform_min_crop_ratio: 0.7
+  transform_time_dilation: 0.2
+  normalize: True
+  img_size: 224 #224 tü -> try 224 for resnet
+  frames: 1  # 1 for image-based, 2 or more for video-based
+  iterate_intervals: True # true if we get multiple images/videos in sequence during inference
+  interval_unit: 'image' # get X number of cycles
+  interval_quant: 1.0
