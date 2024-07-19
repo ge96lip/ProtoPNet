@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 
-from src.utils.video_utils import saveVideo
 from src.utils.explainability_utils import (
     load_data_and_model_products,
     get_src,
@@ -11,7 +10,6 @@ from src.utils.explainability_utils import (
 )
 from src.utils.utils import load_pickle, save_pickle
 from tqdm import tqdm
-from moviepy.video.io.bindings import mplfig_to_npimage
 
 
 def explain_local(

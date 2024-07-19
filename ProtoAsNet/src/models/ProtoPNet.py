@@ -152,8 +152,6 @@ class PPNet(nn.Module):
     @staticmethod
     def get_cnn_backbone_out_channels(features):
         features_name = str(features).upper()
-        print("süüüüüüüüüüüüüüü")
-        print(features_name)
         if "RESNET2P1D" in features_name:
             return [i for i in features.modules() if isinstance(i, nn.Conv3d)][-1].out_channels
         elif features_name.startswith("VGG") or features_name.startswith("RES"):

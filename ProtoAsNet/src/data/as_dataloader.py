@@ -14,14 +14,13 @@ from torchvision.transforms import Compose
 
 from random import uniform
 
-from src.data.video_transforms import RandomRotateVideo
 from src.data.medMnistx import *
 from src.data.ultrasoundload import *
 
 # filter out pytorch user warnings for upsampling behaviour
 warnings.filterwarnings("ignore", category=UserWarning)
 
-class_labels = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"] #change labels
+class_labels = ["0", "1"] #change labels
 
 
 def get_as_dataloader(config, split, mode):  # TODO modify to your own dataset

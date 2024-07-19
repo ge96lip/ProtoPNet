@@ -6,7 +6,6 @@ import os
 import time
 
 from src.utils.utils import makedir, save_pickle
-from src.utils.video_utils import write_video, remove_images
 from tqdm import tqdm
 
 
