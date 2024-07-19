@@ -34,14 +34,12 @@ To ensure everything runs smoothly, please first install the environment as name
 **Note**: This can only be run using CUDA.
 
 ## Using ProtoPFormer
-### Training a New MedMNIST ProtoPFormer
 
-To train a new MedMNIST ProtoPNet, run the following command:
+### Environment Setup
 
-```./ProtoPFormer/scripts/train.sh model_type batch_size MedMNIST_dataset number_of_prototypes```
+1. Place your data in the `data` folder. Download Ultrasound dataset and put it inside 'data' folder, [Link is here](https://drive.google.com/drive/folders/18Pzqy-Zy3_aPRwAVp5UT9GYoLpXTK2rv?usp=sharing)
 
-- `MedMNIST_dataset` can be any but should be with the 224 image size.
-- `number_of_prototypes` should be `number_of_classes x prototypes_per_class`.
+2. Also, we already trained Bloodmnist model for 3-5-10 prototypes. Also, you can find in the driver and put it inside 'logs/Image_ProtoAsNet' [Link is here](https://drive.google.com/drive/folders/189V5SGVvBsm-8idoU-XEFwRcFXDbgvmQ?usp=sharing)
 
 ### Evaluating the Model
 
