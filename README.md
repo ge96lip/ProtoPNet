@@ -115,6 +115,7 @@ synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)
 --------------------------------------------------------------------------------------------------------
 ## Contents
 - [Introduction](#Introduction)
+- [Environment Setup](#Environment-Setup)
 - [Train and Test](#Train-and-Test)
 - [Description of Files and Folders](#Description-of-Files-and-Folders)
 
@@ -124,7 +125,14 @@ synthesize_prototype(ppnet, prototype_idx=0, patch=initial_patch)
 ProtoASNet: Dynamic Prototypes for Inherently Interpretable and Uncertainty-Aware Aortic Stenosis Classification in Echocardiography for medmnist and ultrasound dataset.
 
 --------------------------------------------------------------------------------------------------------
+## Environment Setup
 
+1. Place your data in the `data` folder. Download Ultrasound dataset and put it inside 'data' folder, [Link is here](https://drive.google.com/drive/folders/18Pzqy-Zy3_aPRwAVp5UT9GYoLpXTK2rv?usp=sharing)
+
+2. Also, we already trained Bloodmnist model for 3-5-10 prototypes. Also, you can find in the driver and put it inside 'logs/Image_ProtoAsNet' [Link is here](https://drive.google.com/drive/folders/189V5SGVvBsm-8idoU-XEFwRcFXDbgvmQ?usp=sharing)
+
+
+--------------------------------------------------------------------------------------------------------
 ## Train and Test
 
 To train the model `cd` to the project folder, then use the command `python main.py` with the arguments described below:
@@ -151,7 +159,7 @@ To train the model `cd` to the project folder, then use the command `python main
 
 **Visualization of Images**
 
-- "explain_images.py" visualizes the prototypes and their influences on the model's predictions and saves the visualization results.
+- "explain_images.py" visualizes the prototypes and their influences on the model's predictions and saves the visualization results in the output_images folder.
 
 - "src/data/explain_images_without_names.py" visualizing the prototypes and their influences on the model's predictions and saving the visualization results without real names just (category 0,1,2..).
 
@@ -178,7 +186,7 @@ the important content saved in the logs/save_dir folder are:
 Once you run the system, it will contain the saved models, logs, and evaluation results (visualization of explanations, etc)
 
 ### pretrained_models
-When training is done for the first time, pretrained backbone models are saved here.
+When training is done for the first time, pretrained backbone models are saved here automatically.
 
 ### src
 - `agents/`: folder containing agent classes for each of the architectures. contains the main framework for the training process
