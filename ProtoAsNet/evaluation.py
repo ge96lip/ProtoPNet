@@ -117,7 +117,7 @@ if __name__ == '__main__':
     config = {
     'features': resnet50_features(pretrained=True),
     'num_classes': 8,
-    'prototype_shape': (80, 1024, 1, 1), #(6,512,1,1) -> for resnet18
+    'prototype_shape': (80, 1024, 1, 1),  # all of the 80 prototypes -> 10 per class : for ex: if u want 3 per class it should be (24, 1024, 1, 1)
     'img_size': 224,
     'proto_layer_rf_info': {
         'receptive_field_size': 32,  # Example receptive field size in pixels
