@@ -145,7 +145,7 @@ To train the model `cd` to the project folder, then use the command `python main
 
 - "src/data/as_dataloader" : Implement class labels and dataset (data = MedMnist or data = Ult())
 
-- "src/data/medMnistx.py" python file data loading for medmnist dataset, you can try different medmnist datasets, batch sizes, normalizations and checking datasets.
+- "src/data/medMnistx.py" python file dataloading for medmnist dataset, you can try different medmnist datasets, batch sizes, normalizations and checking datasets.
 
 - After controlling these files run "main.py" for training. You can follow in backlogs
 
