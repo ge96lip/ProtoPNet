@@ -141,7 +141,7 @@ To train the model `cd` to the project folder, then use the command `python main
 
 - "src/configs/Ours_ProtoASNet_Image.yml"`: Yaml file containing hyper-parameters for model, experiment, and loss objectives.
 
-- You can change model architecture, epoch, num_classes, and prototype_shape.
+- You can change model architecture, epoch, num_classes, and prototype_shape. Default is ResNet50. You NEED to adapt num_classes and prototype_shape according to your chosen dataset. 
 
 - "src/data/as_dataloader" : Implement class labels and dataset (data = MedMnist or data = Ult())
 
@@ -180,6 +180,10 @@ the important content saved in the logs/save_dir folder are:
 
 - `model_best.pth`: checkpoint of the last model which is the best model based on a metric of ACC
 
+**NOTE**
+
+If you run into the error `RuntimeError: cuDNN error: CUDNN_STATUS_NOT_INITIALIZED` please try and change the running CUDA device. 
+E.g. run: `CUDA_VISIBLE_DEVICES=1 python main.py`
 
 --------------------------------------------------------------------------------------------------------
 ## Description of files and folders
