@@ -10,7 +10,6 @@ from skimage.transform import resize
 import torch
 from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 from torchvision.transforms import Compose
-#from torchvision.transforms._transforms_video import RandomResizedCropVideo
 
 from random import uniform
 
@@ -20,7 +19,7 @@ from src.data.ultrasoundload import *
 # filter out pytorch user warnings for upsampling behaviour
 warnings.filterwarnings("ignore", category=UserWarning)
 
-class_labels = ["0", "1"] #change labels
+class_labels = ["0", "1", "2", "3", "4", "5", "6", "7"] #change labels
 
 
 def get_as_dataloader(config, split, mode):  # TODO modify to your own dataset

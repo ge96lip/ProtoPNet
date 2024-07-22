@@ -12,8 +12,8 @@ model: &model
   name: "XProtoNet"
   base_architecture: 'resnet50'  # backbone 
   pretrained: True
-  prototype_shape: (6, 1024, 1, 1)  # Modify first element to select total # of prototypes (for ex: 3 per class -> ( num_classes * 3 )
-  num_classes: 2
+  prototype_shape: (24, 1024, 1, 1)  # Modify first element to select total # of prototypes (for ex: 3 per class -> ( num_classes * 3 )
+  num_classes: 8
   add_on_layers_type: 'regular'
 
 ################## Training information ##########################
