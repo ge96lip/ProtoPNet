@@ -1,4 +1,4 @@
-name: ProtoPNet4
+name: ProtoPNet
 channels:
   - defaults
   - conda-forge
@@ -11,7 +11,7 @@ dependencies:
   - timm=0.4.12
   - scipy
   - pandas
-  - torch
+  - pytorch
   - torchvision
   - torchaudio
   - opencv
