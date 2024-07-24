@@ -219,3 +219,7 @@ The code submitted is mainly similar to the original publication. However it has
   When you have ran the entire code in you output you will get several files. The ones added are the visualisations of the prototypes for the best model and the visualisations for the test images for the best model. With similar structure as the folders for the validation set. For more information see the old read me. The folder with all the rpedictions and their explanations are called "visualisation_results". The best model is automatically produced after the run is completed.
 
 For more information see the old readme. This is a condensed version. The old read me is in the PIPNet folder.
+
+final models:
+the final models for the bloodmnist with the different amount of prototypes can be found here: https://drive.google.com/drive/folders/1E69N8g8Gc043ulnl5DbTyxZ-nFsnuouO?usp=sharing
+
