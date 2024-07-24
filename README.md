@@ -218,6 +218,26 @@ The code submitted is mainly similar to the original publication. However it has
 - Analysis
   When you have ran the entire code in you output you will get several files. The ones added are the visualisations of the prototypes for the best model and the visualisations for the test images for the best model. With similar structure as the folders for the validation set. For more information see the old read me. The folder with all the rpedictions and their explanations are called "visualisation_results". The best model is automatically produced after the run is completed.
 
+  To be extra clear: Open the files under the runs folder, the folder specified with the name of your run contains all the necessary information. Down below is the rundown with all the necessary files:
+
+During training, various files will be created in your ``--log_dir``:
+
+- **``log_epoch_overview.csv``** keeps track of the training progress per epoch. It contains accuracies, the number of prototypes, loss values etc. In case of a 2-class task, the third value is F1-score, otherwise this is top5-accuracy. 
+- **``out.txt``** collects the standard output from print statements. Its most relevant content is:
+    - More performance metrics are printed, such as sparsity ratio. In case of a 2-class task, it also shows the sensitivity, specificity, confusion matrix, etc.
+    - At the end of the file, after training, the relevant prototypes per class are printed. E.g., ``Class 0 has 5 relevant prototypes: [(prototype_id, class weight), ...]''. This information thus shows the learned scoring sheet of PIP-Net.
+- **``tqdm.txt``** contains the progress via progress bar package [tqdm](https://tqdm.github.io/). Useful to see how long one epoch will take, and how the losses evolve. Errors are also printed here.
+- **``metadata``** folder logs the provided arguments.
+- **``checkpoints``** folder contains state_dicts of the saved models. 
+- **Prototype visualisations** After training, various folders are created to visualise the learned reasoning of PIP-Net.
+    - ``visualised_pretrained_prototypes_topk`` visualises the top-10 most similar image patches per prototype after the pretraining phase. Each row in ``grid_topk_all`` corresponds to one prototype. The number corresponds with the index of the prototype node, starting at 0.
+    - ``visualised_prototypes_topk`` visualises the top-10 most similar image patches after the full (first and second stage) training. Prototypes that are not relevant to any class (all weights are zero) are excluded.
+    - ``visualised_prototypes`` is a more extensive visualisation of the prototypes learned after training PIP-Net. The ``grid_xxx.png`` images show all image patches that are similar to prototype with index ``xxx``. The number of image patches (or the size of the png file) already gives an indication how often this prototype is found in the training set. If you want to know where these image patches come from (to see some more context), you can open the corresponding folder ``prototype_xxx``. Each image contains a yellow square indicating where prototype ``xxx`` was found, coresponding with an image patch in ``grid_xxx.png``. The file name is ``pxxx_imageid_similarityscore_imagename_rect.png``.
+    - ``visualization_results`` (or other ``--dir_for_saving_images``) contains predictions including local explanations for test images. A subfolder corresponding to a test image contains the test image itself, and folders with predicted classes: ``classname_outputscore``. In such a class folder, it is visualised where which prototypes are detected: ``muliplicationofsimilarityandweight_prototypeindex_similarityscore_classweight_rect_or_patch.png``.
+
+
+
+
 For more information see the old readme. This is a condensed version. The old read me is in the PIPNet folder.
 
 final models:
