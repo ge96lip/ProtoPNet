@@ -6,11 +6,12 @@ channels:
   - nvidia
 dependencies:
   - python=3.10
+  - cudatoolkit=11.7
   - tensorboard
   - timm=0.4.12
   - scipy
   - pandas
-  - pytorch
+  - torch
   - torchvision
   - torchaudio
   - opencv
