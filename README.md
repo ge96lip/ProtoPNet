@@ -208,7 +208,7 @@ README:
 The code submitted is mainly similar to the original publication. However it has been adapted for the medmnist dataset. See following instructions in order to run the code.
 
 - DATASET
-  The way the script has been formulated is that every folder has to be downloaded and organized according to the splits from medmnist. In the beginning of the main function, please specify where you want the folder with the images to be and specificy where the .npz file is. Otherwise the process is automatic and running the code will start off with running and creating the dataset.
+  The way the script has been formulated is that every folder has to be downloaded and organized according to the splits from medmnist. In the beginning of the main function, please specify where you want the folder with the images to be and specificy where the .npz file is. The .npz file has to be downloaded (https://zenodo.org/records/10519652) and put in the Dataset folder. The process is automatic and running the code will start off with running and creating the dataset.
 
   See the data.py and data_test.py files for changing the names of the paths themselves. The script is now adapted for the breastmnist and everything works accordingly to that. If there is another dataset used, change the paths. The data.py and data_test.py need to have the correct paths. See the current paths to understand.
 
