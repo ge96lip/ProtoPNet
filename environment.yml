@@ -6,7 +6,6 @@ channels:
   - nvidia
 dependencies:
   - python=3.10
-  - cudatoolkit=11.7
   - tensorboard
   - timm=0.4.12
   - scipy
@@ -15,10 +14,11 @@ dependencies:
   - torchaudio
   - torchvision
   - opencv
-  - torchsummary
   - torchmetrics
+  - pip
   - pip:
     - matplotlib==3.5.2
     - tqdm
     - medmnist
     - wandb
+    - torchsummary
