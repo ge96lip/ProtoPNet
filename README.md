@@ -202,3 +202,20 @@ When training is done for the first time, pretrained backbone models are saved h
 - `models/`: folders for model architectures
 - `utils/`: folder for some utility scripts and local explanation 
 
+## Using PIPNET
+
+README:
+The code submitted is mainly similar to the original publication. However it has been adapted for the medmnist dataset. See following instructions in order to run the code
+
+- DATASET
+  The way the script has been formulated is that every folder has to be downloaded and organized according to the splits from medmnist. In the beginning of the main function, please specify where you want the folder with the images to be and specificy where the .npz file is.
+
+  See the data.py and data_test.py files for changing the names of the paths themselves. The script is now adapted for the breastmnist and everything works accordingly to that. If there is another dataset used, change the paths.
+
+- Run
+  When running the code, copy the a .txt from the used_arguments folder. Paste them in the terminal. It is necessary that the you are located inside the PIPNet. The necessary specifications are in there. For more information see args.py for what each mean.
+
+- Analysis
+  When you have ran the entire code in you output you will get several files. The ones added are the visualisations of the prototypes for the best model and the visualisations for the test images for the best model. With similar structure as the folders for the validation set. For more information see the old read me. The folder with all the rpedictions and their explanations are called "visualisation_results". The best model is automatically produced after the run is completed.
+
+For more information see the old readme.
