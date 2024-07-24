@@ -10,6 +10,7 @@ dependencies:
   - tensorboard
   - timm=0.4.12
   - scipy
+  - numpy
   - pandas
   - pytorch
   - torchvision
