@@ -1,4 +1,4 @@
-name: ProtoPNet
+name: ProtoPNet4
 channels:
   - defaults
   - conda-forge
@@ -11,8 +11,8 @@ dependencies:
   - scipy
   - pandas
   - pytorch
-  - torchaudio
   - torchvision
+  - torchaudio
   - opencv
   - torchmetrics
   - pip
