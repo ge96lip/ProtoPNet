@@ -1,6 +1,6 @@
 # ProtoPNet
 
-This GitHub repository contains the code implementation of different ProtoPNets. The presentation and paper in this repository compare the results quantitatively and qualitatively of the different ProtoPNets on classification performance and interpretability. 
+This GitHub repository contains the code implementation of different ProtoPNets. The presentation and paper in this repository evaluate the quantitativ and qualitativ performance of the different ProtoPNets on classification and interpretability tasks. 
 
 There are three different ProtoPNets namely:
 - ProtoPFormer
